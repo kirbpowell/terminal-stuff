@@ -5,3 +5,4 @@
       done
     fi
 
+ export LC_TYPE="en_US.UTF-8"
