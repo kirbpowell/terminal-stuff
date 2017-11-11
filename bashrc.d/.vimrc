@@ -3,7 +3,7 @@
 " File: .vimrc
 "
 " This is my personal .vimrc. It's got a lot of plugins etc
-" to make #ViMlyfe a bit easier and sane. 
+" to make #ViMlyfe a bit easier and sane.
 "
 """"""""""""""""""""""""""""
 """"    Vundle Stuff    """"
@@ -14,7 +14,7 @@
 set nocompatible		            " set iMproved
 filetype off			            "required for vundle
 
-"set runtimepath to include Vundle and initialize it. 
+"set runtimepath to include Vundle and initialize it.
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -64,6 +64,9 @@ Plugin 'HTML-AutoCloseTag'
 "Highlight / strip trailing whitespace
 Plugin 'ntpeters/vim-better-whitespace'
 
+"syntax highlighting etc for LaTeX
+Plugin 'lervag/vimtex'
+
 """" END list of plugins
 
 call vundle#end()		    "required for vundle
@@ -73,9 +76,11 @@ filetype plugin indent on	"also required for vundle
 " Airline          "
 "       Settings   "
 """"""""""""""""""""
-set laststatus=2
+" Airline requires a 'patched' font
+" I used https://github.com/abertsch/Menlo-for-Powerline
+""""""""""""""""""""
 let g:airline_powerline_fonts = 1
-let g:airline_detect_paste = 1        
+let g:airline_detect_paste = 1
 let g:airline#extensions#tabline#enabled = 1
 
 """""""""""""""""""""
@@ -87,14 +92,15 @@ let g:airline#extensions#tabline#enabled = 1
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
 "Open up a NERDTree tab on startup.
-let g:nerdtree_tabs_open_on_console_startup = 1
+"let g:nerdtree_tabs_open_on_console_startup = 1
 
 """"""""""""""""""""
 " Syntastic        "
 "       Settings   "
 """"""""""""""""""""
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
+let g:syntastic_error_symbol = '✘'      "set the error symbol
+let g:syntastic_warning_symbol = "▲"    "set the warning symbol
+"required
 augroup mySyntastic
     au!
     au FileType tex let b:syntastic_mode = "passive"
@@ -104,9 +110,7 @@ augroup END
 " git-gutter       "
 "        settings  "
 """"""""""""""""""""
-
-"only show in airline iff diff != zero
-let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#hunks#non_zero_only = 1    "only show in airline iff diff != zero
 
 """""""""""""""""""""
 " delimitMate       "
@@ -114,7 +118,7 @@ let g:airline#extensions#hunks#non_zero_only = 1
 """""""""""""""""""""
 let delimitMate_expand_cr = 1
 augroup mydelimitMate           "tells delimitMate what things to delimit
-    au!                         
+    au!
     au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
     au FileType tex let b:delimitMate_quotes = ""
     au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
@@ -135,14 +139,21 @@ let g:easytags_suppress_ctags_warning = 1
 """""""""""""""""""""
 "      tagbar       "
 """""""""""""""""""""
-nmap <silent> <leader>b :TagbarToggle<CR>   
+nmap <silent> <leader>b :TagbarToggle<CR>
 " lets us open/close tagbar with \b
 
 """""""""""""""""""""
 "     superman      "
 """""""""""""""""""""
-noremap K :SuperMan <cword><CR>     
+noremap K :SuperMan <cword><CR>
 "man pagees in ViM
+"you also need a .bashrc thing. Ask Kirby for it
+
+"""""""""""""""""""""
+"     ViMTeX        "
+"""""""""""""""""""""
+let g:vimtex_view_method = 'skim'   "set the pdf viewer to skim, a lightweight pdf viewer
+let maplocalleader = "\\"           "set the localleader to \, for reasons.
 
 """""""""""""""""""""
 "                   "
@@ -152,6 +163,7 @@ noremap K :SuperMan <cword><CR>
 
 set t_Co=256                        "make sure vim knows we can use 256 colors
 colorscheme blacklight              "Kirby's preferred colorscheme
+set cursorline                      "underlines the current line
 set ruler                           "sets the bottom right ruler
 set showcmd                         "shows the last command entered on last line
 set incsearch                       "enables incremental search
@@ -159,11 +171,12 @@ set hlsearch                        "enables search highlighting
 set nu                              "enables line numbers
 set mouse=a                         "enables the mouse in ViM
 set showmatch                       "highlights the bracket that matches the one you've got selected
-set autochdir                       "set working dir to current file 
+set autochdir                       "set working dir to current file
 set tabstop=4                       "sets how many spaces a tab is
 set shiftwidth=4                    "number of spaces in an autoindent
 set smarttab                        "makes <tab> respect shiftwidth
 set expandtab                       "makes tabs spaces
 set backspace=indent,eol,start      "makes backspace more sane
 syntax on                           "enable syntax highlighting
+set laststatus=2                    "always display the status line
 
