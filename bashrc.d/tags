@@ -1,0 +1,3 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+parse_git_branch	/Users/kirbyp/.shellrc/bashrc.d/10-PS1.bash	/^function parse_git_branch() {$/;"	f	language:Sh
+parse_git_dirty	/Users/kirbyp/.shellrc/bashrc.d/10-PS1.bash	/^function parse_git_dirty {$/;"	f	language:Sh

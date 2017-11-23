@@ -67,6 +67,12 @@ Plugin 'ntpeters/vim-better-whitespace'
 "syntax highlighting etc for LaTeX
 Plugin 'lervag/vimtex'
 
+"auto-completion in vim
+"Plugin 'Valloric/YouCompleteMe'
+
+"Better commment macros etc
+Plugin 'scrooloose/nerdcommenter'
+
 """" END list of plugins
 
 call vundle#end()		    "required for vundle
@@ -154,6 +160,13 @@ noremap K :SuperMan <cword><CR>
 """""""""""""""""""""
 let g:vimtex_view_method = 'skim'   "set the pdf viewer to skim, a lightweight pdf viewer
 let maplocalleader = "\\"           "set the localleader to \, for reasons.
+
+"""""""""""""""""""""
+"  NERD Commenter   "
+"""""""""""""""""""""
+let g:NERDSpaceDelims = 1           " add spaces after comment delimiter by default
+let g:NERDDefaultAlign = 'left'     " align comments to the left by default
+let g:NERDCommentEmptyLines = 1     " allow NERDComment to comment emptys
 
 """""""""""""""""""""
 "                   "
