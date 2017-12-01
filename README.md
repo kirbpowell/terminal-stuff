@@ -114,7 +114,7 @@ vman() {
         echo "No manual entry for $*"
       fi
     }
-``
+```
 
 That will allow you to run something like `$ vman git` which will pull up the man pages for git, but in ViM.
 
