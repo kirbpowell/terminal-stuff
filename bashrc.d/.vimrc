@@ -173,7 +173,7 @@ let g:NERDCommentEmptyLines = 1     " allow NERDComment to comment emptys
 "       Whitespace  "
 """""""""""""""""""""
 
-autocmd BufEnter * EnableStripeWhitespaceOnSave
+autocmd BufEnter * EnableStripWhitespaceOnSave
 
 """""""""""""""""""""
 "                   "
