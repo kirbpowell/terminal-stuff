@@ -6,3 +6,11 @@
     fi
 
  export LC_TYPE="en_US.UTF-8"
+
+ vman() {
+     vim -c "SuperMan $*"
+
+     if [ "$?" != "0" ]; then
+         echo "No man entry for $*"
+     fi
+ }
