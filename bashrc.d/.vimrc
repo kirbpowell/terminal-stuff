@@ -169,6 +169,13 @@ let g:NERDDefaultAlign = 'left'     " align comments to the left by default
 let g:NERDCommentEmptyLines = 1     " allow NERDComment to comment emptys
 
 """""""""""""""""""""
+" Vim Better        "
+"       Whitespace  "
+"""""""""""""""""""""
+
+autocmd BufEnter * EnableStripeWhitespaceOnSave
+
+"""""""""""""""""""""
 "                   "
 "  General Settings "
 "                   "
