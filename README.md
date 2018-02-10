@@ -1,8 +1,14 @@
 # How to .vimrc, with your host Kirby.
 
+## Table of Contents
+
+- [Objectives](#objectives)
+- [Bash](#bash-organization-steps)
+- [ViM](#vim-installation-steps)
+
 Oh, Hello. I didn't see you there. Well, now that you're here, I suppose that there's nothing else to do but teach you how, precisely, you can live that #ViMLyfe.
 
-## Objectives & Pre-requisites
+## Objectives
 
 * We'll take your ViM to the next level by:
   - We shall make your ViM experience far more IDE like, and colorful.
@@ -17,7 +23,26 @@ You'll need to know:
 3. Git proficiency is a must
 4. Comfortability with bash scripts is nice, but not strictly necessary.
 
-## Installation Steps
+## Bash Organization Steps
+
+This section will teach you how I organize my dot files in a way that makes them fairly portable.
+
+1. Create a hidden folder to stick all of your dot files in your home directory, `mkdir .shellrc`
+2. This is where you'll put your `.bashrc` and `.bash_profile` dot files.
+3. Now make a sub directory - `mkdir bashrc.d`
+4. This is where fancy stuff, like `.bash` and `.PS1` files will go, see [here](~/bashrc.d/) for examples.
+   - This is also where your `.vimrc` file will live.
+
+Now we've got our directory set up, and populated with all the dot files you'd like to have. Now we have to let our \*nix system know where to find them.
+
+1. run `ln -s ~/.bash_profile`
+2. run `ln -s ~/.shellrc/.bashrc`
+3. run `ln -s ~/.shellrc/.bashrc ~/.bashrc`
+
+These commands create symbolic links between your actual dot files, and the locations where \*nix expects to find them. Now that we've done all of this prep work, we can continue on to all of that ViM flavor you've been looking forward to.
+
+
+## ViM Installation Steps
 
 The first thing we'll need to do, to upgrade your ViM, is to install Vundle - a neato and fairly ubiquitous package/plugin manager for ViM. You can install it by running the following command:
 
