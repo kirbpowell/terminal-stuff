@@ -33,7 +33,7 @@ This section will teach you how I organize my dot files in a way that makes them
 1. Create a hidden folder to stick all of your dot files in your home directory, `mkdir .shellrc`
 2. This is where you'll put your `.bashrc` and `.bash_profile` dot files.
 3. Now make a sub directory - `mkdir bashrc.d`
-4. This is where fancy stuff, like `.bash` and `.PS1` files will go, see [here](~/bashrc.d/) for examples.
+4. This is where fancy stuff, like `.bash` and `.PS1` files will go, see [here](https://github.com/kirbpowell/terminal-stuff/blob/master/bashrc.d/) for examples.
    - This is also where your `.vimrc` file will live.
 
 Now we've got our directory set up, and populated with all the dot files you'd like to have. Now we have to let our \*nix system know where to find them. Run the following commands;
@@ -88,7 +88,7 @@ Once you've got all that in there, `:wq` to save and quit. Once outside of ViM, 
 
 ## Moar Plugins
 
-Here I'll show a couple of examples of how to install plugins, along with the relevant settings for those example plugins. My full suite of plugins and settings is in the .vimrc found [here](~bashrc.d/.vimrc).
+Here I'll show a couple of examples of how to install plugins, along with the relevant settings for those example plugins. My full suite of plugins and settings is in the .vimrc found [here](https://github.com/kirbpowell/terminal-stuff/blob/master/bashrc.d/.vimrc#L21).
 
 ```vimscript
 """"""""""""""
