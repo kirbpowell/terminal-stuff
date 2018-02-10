@@ -5,6 +5,9 @@
 - [Objectives](#objectives)
 - [Bash](#bash-organization-steps)
 - [ViM](#vim-installation-steps)
+- [Vundle](#how-to-vundle)
+- [Plugins](#moar-plugins)
+- [Other Plugins](#other-stuff)
 
 Oh, Hello. I didn't see you there. Well, now that you're here, I suppose that there's nothing else to do but teach you how, precisely, you can live that #ViMLyfe.
 
@@ -33,14 +36,15 @@ This section will teach you how I organize my dot files in a way that makes them
 4. This is where fancy stuff, like `.bash` and `.PS1` files will go, see [here](~/bashrc.d/) for examples.
    - This is also where your `.vimrc` file will live.
 
-Now we've got our directory set up, and populated with all the dot files you'd like to have. Now we have to let our \*nix system know where to find them.
+Now we've got our directory set up, and populated with all the dot files you'd like to have. Now we have to let our \*nix system know where to find them. Run the following commands;
 
-1. run `ln -s ~/.bash_profile`
-2. run `ln -s ~/.shellrc/.bashrc`
-3. run `ln -s ~/.shellrc/.bashrc ~/.bashrc`
+```bash
+ln -s ~/.shellrc/.bash_profile ~/.bash_profile
+ln -s ~/.shellrc/.bashrc ~/.bashrc
+ln -s ~/.shellrc/bashrc.d/.vimrc ~/.vimrc
+```
 
 These commands create symbolic links between your actual dot files, and the locations where \*nix expects to find them. Now that we've done all of this prep work, we can continue on to all of that ViM flavor you've been looking forward to.
-
 
 ## ViM Installation Steps
 
@@ -52,9 +56,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 This clones Vundle into your new `~/.vim/bundle/` directory, which is where all of your plugins will live. Once that finishes, it's time to work on the .vimrc.
 
-## Making Vundle work with ViM
+## How to Vundle
 
-Take whatever crap you've got in your .vimrc, and save it. This guide should cover most of the crap you've got in there, but anything we don't cover you should be able to add back in later.
+Take whatever you've got in your .vimrc, and save it. This guide should cover most common .vimrc things, but anything I don't cover can be added back in later.
 
 Now that that's out of the way, add the following to your .vimrc:
 
@@ -67,7 +71,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle handle Vundle stuff - required
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'Alongside this guide you'll find my annotated .vimrc, Alongside this guide you'll find my annotated .vimrc,
 
 "
 "
@@ -84,7 +88,7 @@ Once you've got all that in there, `:wq` to save and quit. Once outside of ViM, 
 
 ## Moar Plugins
 
-Alongside this guide you'll find my annotated .vimrc, Here I'll show a couple of examples of how to install plugins, along with the relevant settings for those example plugins. My full suite of plugins and settings is in the .vimrc.
+Here I'll show a couple of examples of how to install plugins, along with the relevant settings for those example plugins. My full suite of plugins and settings is in the .vimrc found [here](~bashrc.d/.vimrc).
 
 ```vimscript
 """"""""""""""
@@ -111,7 +115,7 @@ augroup END
 
 It's important to note that these settings, unlike the plugins themselves, do not need to be installed once added to the .vimrc. They won't take effect until the next time you open vim.
 
-## Other necessary stuff.
+## Other stuff
 
 Some of the plugins I reccommend, specifically Syntastic (for syntax checking), have requirements outside of vim. I'll list those and go through them here.
 
