@@ -4,14 +4,16 @@ Oh, Hello. I didn't see you there. Well, now that you're here, I suppose that th
 
 ## Objectives & Pre-requisites
 
-1. We're going to take your vim to the next level.
-2. We shall make your ViM experience far more IDE like, and colorful.
-3. Note that this guide assumes a \*nix system, including Mac OSX.
+* We'll take your ViM to the next level by:
+  - We shall make your ViM experience far more IDE like, and colorful.
+* We're also going to set up your dot files so that they're more organized, and easier to bring with you from computer to computer.
+
+* Note that this guide assumes a \*nix system, including Mac OSX.
 
 You'll need to know:
 
 1. Basic ViM stuff. Registers, buffers, yanks and puts should all be old hat for you.
-2. Some of the plugins we'll install also need you to understand ViM's search.
+2. Some of the plugins we'll install also require that you understand ViM's search.
 3. Git proficiency is a must
 4. Comfortability with bash scripts is nice, but not strictly necessary.
 
