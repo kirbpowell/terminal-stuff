@@ -68,10 +68,19 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'lervag/vimtex'
 
 "auto-completion in vim
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 "Better commment macros etc
 Plugin 'scrooloose/nerdcommenter'
+
+"Code folding!
+Plugin 'tmhedberg/SimpylFold'
+
+"PEP8 support!
+Plugin 'w0rp/ale' "Linter Engine
+
+"Code search
+Plugin 'mileszs/ack.vim'
 
 """" END list of plugins
 
@@ -172,8 +181,34 @@ let g:NERDCommentEmptyLines = 1     " allow NERDComment to comment emptys
 " Vim Better        "
 "       Whitespace  "
 """""""""""""""""""""
-
 autocmd BufEnter * EnableStripWhitespaceOnSave
+
+"""""""""""""""""""""
+"    SimpylFold     "
+"""""""""""""""""""""
+let g:SimpylFold_docstring_preview=1
+set foldlevel=99
+
+"""""""""""""""""""""
+"    You            "
+"      Complete     "
+"             Me    "
+"""""""""""""""""""""
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinition<CR>
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+
+"""""""""""""""""""""
+"     Ack Code      "
+"      Search       "
+"""""""""""""""""""""
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 """""""""""""""""""""
 "                   "
@@ -199,4 +234,3 @@ set expandtab                       "makes tabs spaces
 set backspace=indent,eol,start      "makes backspace more sane
 syntax on                           "enable syntax highlighting
 set laststatus=2                    "always display the status line
-
