@@ -6,8 +6,8 @@
 - [Bash](#bash-organization-steps)
 - [ViM](#vim-installation-steps)
 - [Vundle](#how-to-vundle)
-- [Plugins](#moar-plugins)
-- [Other Plugins](#other-stuff)
+- [Plugin Settings](#plugin-settings)
+- [Plugin Notes](#plugin-notes)
 
 Oh, Hello. I didn't see you there. Well, now that you're here, I suppose that there's nothing else to do but teach you how, precisely, you can live that #ViMLyfe.
 
@@ -86,7 +86,7 @@ filetype plugin indent on       "required
 
 Once you've got all that in there, `:wq` to save and quit. Once outside of ViM, run `vim +PluginInstall +qall` to install the Vundle plugin in a way that ViM understands. Note that each time you add a plugin to your .vimrc you will need to run the `vim +PluginInstall +qall` command.
 
-## Moar Plugins
+## Plugin Settings
 
 Here I'll show a couple of examples of how to install plugins, along with the relevant settings for those example plugins. My full suite of plugins and settings is in the .vimrc found [here](https://github.com/kirbpowell/terminal-stuff/blob/master/bashrc.d/.vimrc#L21).
 
@@ -115,13 +115,21 @@ augroup END
 
 It's important to note that these settings, unlike the plugins themselves, do not need to be installed once added to the .vimrc. They won't take effect until the next time you open vim.
 
-## Other stuff
+## Plugin Notes
 
 Some of the plugins I reccommend, specifically Syntastic (for syntax checking), have requirements outside of vim. I'll list those and go through them here.
 
 ### Syntastic
 
 Syntastic requires special fun fonts. These are called 'patched fonts', and they do some kind of weird unicode shit. If you've already got one, great! Set it as your terminal font. If not, there's a whole bunch available on github with installation instructions available [here](https://github.com/powerline/fonts).
+
+### YouCompleteMe
+
+YouCompleteMe is a code completion engine. 
+
+### SimpylFold
+
+Be sure to set the `foldlevel` to your preferred value --- the default is to start with all folds in the closed position.
 
 ### EasyTags
 
@@ -158,5 +166,7 @@ That will allow you to run something like `$ vman git` which will pull up the ma
 * You can open up SuperMan, from within ViM, with `K`. Of course, you can set this to whatever you'd like.
 
 * You can switch between panes using `<ctrl>+h/j/k/l`, akin to normal vim navigation.
+
+* To open or close code folds, use `za`. 
 
 ## That should be it! Ask Kirby if you have any further questions, or suggestions for improvement. Thanks for reading!
