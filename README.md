@@ -125,7 +125,7 @@ Syntastic requires special fun fonts. These are called 'patched fonts', and they
 
 ### YouCompleteMe
 
-YouCompleteMe is a code completion engine. 
+YouCompleteMe is a code completion engine. **Note** that YCM is a *compiled* component. You will need to manually compile it for your specific system after it's been installed via Vundle. You can find detailed instructions for all major OSes [here](https://github.com/Valloric/YouCompleteMe#installation).
 
 ### SimpylFold
 
