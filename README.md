@@ -127,6 +127,10 @@ Syntastic requires special fun fonts. These are called 'patched fonts', and they
 
 YouCompleteMe is a code completion engine. **Note** that YCM is a *compiled* component. You will need to manually compile it for your specific system after it's been installed via Vundle. You can find detailed instructions for all major OSes [here](https://github.com/Valloric/YouCompleteMe#installation).
 
+### Code Search with Ack & Ag
+
+I use [Ag](https://github.com/ggreer/the_silver_searcher#whats-so-great-about-ag) for code search in ViM, through the [ack.vim](https://github.com/mileszs/ack.vim#ackvim) vim plugin. You'll need to install Ag separately, and make the changes recommended on the Ag github page.
+
 ### SimpylFold
 
 Be sure to set the `foldlevel` to your preferred value --- the default is to start with all folds in the closed position.
