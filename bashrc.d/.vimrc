@@ -82,6 +82,12 @@ Plugin 'w0rp/ale' "Linter Engine
 "Code search
 Plugin 'mileszs/ack.vim'
 
+"Rainbow Parentheses
+Plugin 'luochen1990/rainbow'
+
+"Better Python Syntax Highlighting
+Plugin 'vim-python/python-syntax'
+
 """" END list of plugins
 
 call vundle#end()		    "required for vundle
@@ -92,7 +98,6 @@ filetype plugin indent on	"also required for vundle
 "       Settings   "
 """"""""""""""""""""
 " Airline requires a 'patched' font
-" I used https://github.com/abertsch/Menlo-for-Powerline
 """"""""""""""""""""
 let g:airline_powerline_fonts = 1
 let g:airline_detect_paste = 1
@@ -107,14 +112,21 @@ let g:airline#extensions#tabline#enabled = 1
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
 "Open up a NERDTree tab on startup.
-"let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 1
 
 """"""""""""""""""""
 " Syntastic        "
 "       Settings   "
 """"""""""""""""""""
+let g:syntastic_python_checkers = ['flake8', 'mypy']
 let g:syntastic_error_symbol = '✘'      "set the error symbol
 let g:syntastic_warning_symbol = "▲"    "set the warning symbol
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 "required
 augroup mySyntastic
     au!
@@ -209,6 +221,15 @@ let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
 "      Search       "
 """""""""""""""""""""
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+"""""""""""""""""""""
+"   Rainbow Parens  "
+"""""""""""""""""""""
+let g:rainbow_active = 1
+"""""""""""""""""""""
+"     ViM-Python    "
+"""""""""""""""""""""
+let g:python_highlight_all = 1
 
 """""""""""""""""""""
 "                   "
