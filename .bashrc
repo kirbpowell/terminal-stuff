@@ -49,6 +49,15 @@ ksp() {
   kubectl exec -it $POD python manage.py shell_plus
 }
 
-#alias vim="/Applications/MacVim.app/Contents/bin/mvim -v"
+# alias vim and vi to Neovim
+alias vim="/usr/local/bin/nvim"
+alias vi="/usr/local/bin/nvim"
 
+# vundle update alias
 alias vimupdate="vim +PluginInstall +qall"
+
+# alias for Kitty's diff tool
+alias kdiff="git difftool --no-symlinks --dir-diff"
+
+#put all of this in zsh too!
+. /usr/local/etc/profile.d/z.sh
