@@ -3,8 +3,7 @@
 ## Table of Contents
 
 - [Objectives](#objectives)
-- [Bash](#bash-organization-steps)
-- [ViM](#vim-installation-steps)
+- [NeoViM](#neovim-installation-steps)
 - [Vundle](#how-to-vundle)
 - [Plugin Settings](#plugin-settings)
 - [Plugin Notes](#plugin-notes)
@@ -26,29 +25,25 @@ You'll need to know:
 3. Git proficiency is a must
 4. Comfortability with bash scripts is nice, but not strictly necessary.
 
-## Bash Organization Steps
+## NeoViM Installation Steps
 
-This section will teach you how I organize my dot files in a way that makes them fairly portable.
-
-1. Create a hidden folder to stick all of your dot files in your home directory, `mkdir .shellrc`
-2. This is where you'll put your `.bashrc` and `.bash_profile` dot files.
-3. Now make a sub directory - `mkdir bashrc.d`
-4. This is where fancy stuff, like `.bash` and `.PS1` files will go, see [here](https://github.com/kirbpowell/terminal-stuff/blob/master/bashrc.d/) for examples.
-   - This is also where your `.vimrc` file will live.
-
-Now we've got our directory set up, and populated with all the dot files you'd like to have. Now we have to let our \*nix system know where to find them. Run the following commands;
+The first thing we'll do is get NeoViM! It's got a bunch of neat features that regular ViM doesn't, and it's pretty quick to boot.
 
 ```bash
-ln -s ~/.shellrc/.bash_profile ~/.bash_profile
-ln -s ~/.shellrc/.bashrc ~/.bashrc
-ln -s ~/.shellrc/bashrc.d/.vimrc ~/.vimrc
+# MacOS
+brew install neovim
+
+# Ubuntu
+sudo apt install neovim
 ```
 
-These commands create symbolic links between your actual dot files, and the locations where \*nix expects to find them. Now that we've done all of this prep work, we can continue on to all of that ViM flavor you've been looking forward to.
+For some of the features we'll be using, you'll also need to install NeoViM's python helper, `pynvim`
 
-## ViM Installation Steps
+```bash
+pip install pynvim
+```
 
-The first thing we'll need to do, to upgrade your ViM, is to install Vundle - a neato and fairly ubiquitous package/plugin manager for ViM. You can install it by running the following command:
+Finally, we'll instill Vundle, one of many package managers for ViM/NeoViM
 
 ```bash
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -106,9 +101,9 @@ nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 let delimitMate_expand_cr = 1
 augroup mydelimitMate           "tells delimitMate what things to delimit
     au!
-    au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+    au FileType markdown let b:delimitMate_nesting_quotes = ["\`"]
     au FileType tex let b:delimitMate_quotes = "
-    au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+    au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},\`:'"
     au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 ```
@@ -119,16 +114,6 @@ It's important to note that these settings, unlike the plugins themselves, do no
 
 Some of the plugins I reccommend, specifically Syntastic (for syntax checking), have requirements outside of vim. I'll list those and go through them here.
 
-### Syntastic
-
-Syntastic requires special fun fonts. These are called 'patched fonts', and they do some kind of weird unicode shit. If you've already got one, great! Set it as your terminal font. If not, there's a whole bunch available on github with installation instructions available [here](https://github.com/powerline/fonts).
-
-### YouCompleteMe
-
-YouCompleteMe is a code completion engine.      
-
-**Note** that YCM is a *compiled* component. You will need to manually compile it for your specific system after it's been installed via Vundle. You can find detailed instructions for all major OSes [here](https://github.com/Valloric/YouCompleteMe#installation).
-
 ### Code Search with Ack & Ag
 
 I use [Ag](https://github.com/ggreer/the_silver_searcher#whats-so-great-about-ag) for code search in ViM, through the [ack.vim](https://github.com/mileszs/ack.vim#ackvim) vim plugin. You'll need to install Ag separately, and make the changes recommended on the Ag github page.
@@ -136,6 +121,7 @@ I use [Ag](https://github.com/ggreer/the_silver_searcher#whats-so-great-about-ag
 ### SimpylFold
 
 Be sure to set the `foldlevel` to your preferred value --- the default is to start with all folds in the closed position.
+For this reason, I've got `foldlevel = 99`, which means all folds default to the open position.
 
 ### EasyTags
 
@@ -165,9 +151,9 @@ That will allow you to run something like `$ vman git` which will pull up the ma
 
 ## A note on how to use some of the plugins in the .vimrc
 
-* To open up NERDTree, you can use `\t` to open up the NERDTree pane. If you want, you can also uncomment a line inside the .vimrc to have this pane open up automatically on startup.
+* To open up NERDTree, you can use `<space>t` to open up the NERDTree pane. If you want, you can also uncomment a line inside the .vimrc to have this pane open up automatically on startup.
 
-* You can open up TagBar, to look at your tags, via `\b`
+* You can open up TagBar, to look at your tags, via `<space>b`
 
 * You can open up SuperMan, from within ViM, with `K`. Of course, you can set this to whatever you'd like.
 
