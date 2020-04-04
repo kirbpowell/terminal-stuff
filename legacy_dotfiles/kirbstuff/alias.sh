@@ -9,5 +9,5 @@ alias vi="/usr/local/bin/nvim"
 # Kitty shell's neat difftool thing.
 alias kdiff="git difftool --no-symlinks --dir-diff"
 
-# Reload Chunkwm settings
-alias chunkrl="brew services restart chunkwm"
+# better ll command
+alias ll="ls -la"
