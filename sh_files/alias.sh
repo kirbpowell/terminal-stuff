@@ -1,7 +1,7 @@
 # General aliases for useful stuff
 
 # Way better git log --found on coderwall.com
-alias glog="git log --graph --pretty=format: '%Cred%h%Creset' -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # use NeoViM instead of ViM
 alias vim="/usr/local/bin/nvim"
