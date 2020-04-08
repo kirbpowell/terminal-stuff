@@ -44,7 +44,7 @@ plugins=(git poetry)
 
 source $ZSH/oh-my-zsh.sh
 
-# activate thefuck  MUST BE SEPARATELY INSTALLED
+# activate thefuck
 eval $(thefuck --alias)
 
 # User configuration
@@ -64,3 +64,13 @@ export PATH="/Users/kirby/Library/Python/3.7/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#homebrew stuff
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/bin.openssl
+
+# pyvenv stuff
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
