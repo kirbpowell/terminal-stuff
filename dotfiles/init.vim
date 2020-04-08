@@ -1,8 +1,6 @@
 " Author: Kirby Powell
 "
-" File: init.vim
-"
-" This is my personal init.vim (.vimrc for neovim) It's got a lot of plugins etc
+" This is my personal init.vim. It's got a lot of plugins etc
 " to make #ViMlyfe a bit easier and sane.
 "
 """"""""""""""""""""""""""""
@@ -22,9 +20,6 @@ call vundle#begin()
 
 "vundle needs to be able to manage itself
 Plugin 'VundleVim/Vundle.vim'
-
-"colorschemes plugin
-Plugin 'flazz/vim-colorschemes'
 
 "vim airline!
 Plugin 'vim-airline/vim-airline'
@@ -76,6 +71,18 @@ Plugin 'luochen1990/rainbow'
 "Nord Colorscheme
 Plugin 'arcticicestudio/nord-vim'
 
+"Better lineno/relative lineno stuff
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+
+"PEP8 aware indentation for Python
+Plugin 'Vimjas/vim-python-pep8-indent'
+
+"ALE - Async Linter Enginer
+Plugin 'dense-analysis/ale'
+
+"Better python syntax highlighting w/ semshi
+Plugin 'numirias/semshi'
+
 """" END list of plugins
 
 call vundle#end()		    "required for vundle
@@ -98,28 +105,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 "allows us to open NERDTree tabs with '\t'
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-
-"Open up a NERDTree tab on startup.
-let g:nerdtree_tabs_open_on_console_startup = 1
-
-""""""""""""""""""""
-" Syntastic        "
-"       Settings   "
-""""""""""""""""""""
-"let g:syntastic_python_checkers = ['flake8', 'mypy']
-"let g:syntastic_error_symbol = '✘'      "set the error symbol
-"let g:syntastic_warning_symbol = "▲"    "set the warning symbol
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
-"required
-"augroup mySyntastic
-"    au!
-"    au FileType tex let b:syntastic_mode = "passive"
-"augroup END
 
 """"""""""""""""""""
 " git-gutter       "
@@ -168,6 +153,8 @@ noremap K :SuperMan <cword><CR>
 "     ViMTeX        "
 """""""""""""""""""""
 let g:vimtex_view_method = 'skim'   "set the pdf viewer to skim, a lightweight pdf viewer
+let maplocalleader = "\\"           "set the localleader to \, for reasons.
+let g:vimtex_compiler_progname = 'nvr'
 
 """""""""""""""""""""
 "  NERD Commenter   "
@@ -213,10 +200,6 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 "   Rainbow Parens  "
 """""""""""""""""""""
 let g:rainbow_active = 1
-"""""""""""""""""""""
-"     ViM-Python    "
-"""""""""""""""""""""
-"let g:python_highlight_all = 1
 
 """""""""""""""""""""
 "                   "
@@ -225,13 +208,15 @@ let g:rainbow_active = 1
 """""""""""""""""""""
 
 set t_Co=256                        "make sure vim knows we can use 256 colors
-colorscheme nord              "Kirby's preferred colorscheme
+colorscheme nord                    "Kirby's preferred colorscheme
 set cursorline                      "underlines the current line
 set ruler                           "sets the bottom right ruler
 set showcmd                         "shows the last command entered on last line
 set incsearch                       "enables incremental search
 set hlsearch                        "enables search highlighting
-set nu                              "enables line numbers
+set ignorecase                      "ignore case by default in search
+set smartcase                       "context sensitive case insensitive search
+set nu rnu                          "enables line numbers
 set mouse=a                         "enables the mouse in ViM
 set showmatch                       "highlights the bracket that matches the one you've got selected
 set autochdir                       "set working dir to current file
@@ -242,6 +227,11 @@ set expandtab                       "makes tabs spaces
 set backspace=indent,eol,start      "makes backspace more sane
 syntax on                           "enable syntax highlighting
 set laststatus=2                    "always display the status line
-let maplocalleader="\<space>"       "set the localleader to the space bar, because it's way better.
+set splitbelow                      "open new horizontal splits BELOW the current file
+set splitright                      "open new vertical splits RIGHT of the current file
 
+"set the localleader to the space bar, because it's way better.
+map <space> <leader>
 
+"use <space><space> to clear search highlighting
+nnoremap <Leader><space> :noh<cr>
