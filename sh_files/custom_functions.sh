@@ -76,6 +76,19 @@ ksp() {
   kubectl exec -it $POD python manage.py shell_plus
 }
 
+# Exec into pod. Usage: kb descriptor
+kb() {
+  POD=$(kubectl get pods | grep "$1" | head -1 | cut -d' ' -f1)
+  echo -e "\033[0;35mEntering pod bash ${POD}\033[0m"
+  kubectl exec -it $POD bash
+}
+
+# Get rid of hanging docker containers
 dockerkill() {
     docker rm $(docker ps -a -q) -f
+}
+
+# Get rid of old docker images
+dockerclean() {
+    docker rmi $(docker images -a --filter=dangling=true -q)
 }
