@@ -1,3 +1,6 @@
+# python
+brew "python3"
+
 # Shell stuff
 cask "alacritty"
 brew "tmux"
