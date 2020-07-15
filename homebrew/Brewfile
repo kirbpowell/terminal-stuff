@@ -1,0 +1,36 @@
+# Shell stuff
+cask "alacritty"
+brew "tmux"
+
+# fun cli tools
+brew "bat"
+brew "fd"
+brew "htop"
+brew "jq"
+brew "thefuck"
+brew "tree"
+
+# searching stuff
+brew "the_silver_searcher"
+brew "ripgrep"
+brew "fzf"
+
+# neovim stuff
+brew "neovim"
+brew "ctags"
+
+# git tools
+brew "diff-so-fancy"
+
+# container tools
+brew "ctop"
+brew "skaffold"
+brew "stern"
+
+# window manager tools
+brew "yabai"
+brew "skhd"
+
+# dev stuff
+brew "pyenv"
+brew "httpie"

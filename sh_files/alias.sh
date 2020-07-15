@@ -15,3 +15,6 @@ alias vimupdate="vim +PluginInstall +qall"
 
 # Alias get pods because I do it all the time
 alias kgp="kubectl get pods"
+
+# Skaffold Reset (delete followed by run)
+alias sr="skaffold delete && skaffold run"
