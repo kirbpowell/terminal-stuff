@@ -83,6 +83,9 @@ Plugin 'dense-analysis/ale'
 "Better python syntax highlighting w/ semshi
 Plugin 'numirias/semshi'
 
+"CoC - Code completion
+Plugin 'neoclide/coc.nvim'
+
 """" END list of plugins
 
 call vundle#end()		    "required for vundle
@@ -200,6 +203,60 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 "   Rainbow Parens  "
 """""""""""""""""""""
 let g:rainbow_active = 1
+"
+"""""""""""""""""""""
+"       A.L.E       "
+"""""""""""""""""""""
+let g:ale_fixers = {
+\    '*': ['remove_trailing_lines', 'trim_whitespace'],
+\    'javascript': ['prettier', 'eslint'],
+\    'python': ['black', 'isort'],
+\}
+let g:ale_fix_on_save = 1  "automatically run ALE on file save.
+let g:ale_python_black_options = '--line-length 88'
+let g:ale_python_isort_options = '-profile black -fss -fass'
+
+"""""""""""""""""""""
+"                   "
+"       CoC         "
+"                   "
+"""""""""""""""""""""
+set hidden          " seems to be necessary
+
+set nobackup        " backups seem to mess w/ coc
+set nowritebackup
+
+set cmdheight=2     " more room for coc to show stuff
+
+set updatetime=300  " suggested default value
+
+set shortmess+=c
+
+" stop vim from changing the left column, if possible
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Tell CoC where to find Python
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml']
 
 """""""""""""""""""""
 "                   "
@@ -235,3 +292,9 @@ map <space> <leader>
 
 "use <space><space> to clear search highlighting
 nnoremap <Leader><space> :noh<cr>
+
+"disable unused providers
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
