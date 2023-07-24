@@ -1,8 +1,4 @@
-# python
-brew "python3"
-
 # Shell stuff
-cask "alacritty"
 brew "tmux"
 
 # fun cli tools
@@ -27,8 +23,6 @@ brew "diff-so-fancy"
 
 # container tools
 brew "ctop"
-brew "skaffold"
-brew "stern"
 
 # window manager tools
 brew "yabai"

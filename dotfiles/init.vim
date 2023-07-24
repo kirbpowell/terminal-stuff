@@ -4,92 +4,86 @@
 " to make #ViMlyfe a bit easier and sane.
 "
 """"""""""""""""""""""""""""
-""""    Vundle Stuff    """"
+""""    vim-plug Stuff    """"
 """" THIS MUST BE FIRST """"
 """"                    """"
 """"""""""""""""""""""""""""
 
 set nocompatible		            " set iMproved
-filetype off			            "required for vundle
 
-"set runtimepath to include Vundle and initialize it.
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" initialize vim-plug
+call plug#begin('~/.vim/plugged')
 
 """" BEGIN list of plugins
 
-"vundle needs to be able to manage itself
-Plugin 'VundleVim/Vundle.vim'
-
 "vim airline!
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "NerdTree
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
-"Plugins for use w/ Git. Git-gutter/Git-fugitive
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+"Plugs for use w/ Git. Git-gutter/Git-fugitive
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 "delimitMate - insert matching delimiters!
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
 "Extensions for showing tags, generating tagfiles, etc`
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'majutsushi/tagbar'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
 
 "deals with manpages and tmux
-Plugin 'jez/vim-superman'
+Plug 'jez/vim-superman'
 
 "tmux navigator - useful with nerdtree etc aswell
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 "auto-close HTML tags
-Plugin 'HTML-AutoCloseTag'
+Plug 'vim-scripts/HTML-AutoCloseTag'
 
 "Highlight / strip trailing whitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
 "syntax highlighting etc for LaTeX
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex'
 
 "Better commment macros etc
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 "Code folding!
-Plugin 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 
 "Code search
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
 "Rainbow Parentheses
-Plugin 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 
 "Nord Colorscheme
-Plugin 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 
 "Better lineno/relative lineno stuff
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 "PEP8 aware indentation for Python
-Plugin 'Vimjas/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 "ALE - Async Linter Enginer
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 "Better python syntax highlighting w/ semshi
-Plugin 'numirias/semshi'
+Plug 'numirias/semshi'
 
 "CoC - Code completion
-Plugin 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim'
 
 """" END list of plugins
+call plug#end()
 
-call vundle#end()		    "required for vundle
-filetype plugin indent on	"also required for vundle
 
 """"""""""""""""""""
 " Airline          "
