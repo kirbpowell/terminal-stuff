@@ -64,7 +64,7 @@ Plug 'mileszs/ack.vim'
 Plug 'luochen1990/rainbow'
 
 "Nord Colorscheme
-Plug 'arcticicestudio/nord-vim'
+Plug 'nordtheme/vim'
 
 "Better lineno/relative lineno stuff
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -79,7 +79,7 @@ Plug 'dense-analysis/ale'
 Plug 'numirias/semshi'
 
 "CoC - Code completion
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 """" END list of plugins
 call plug#end()
